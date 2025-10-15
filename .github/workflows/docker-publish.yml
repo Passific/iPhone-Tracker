@@ -2,9 +2,8 @@ name: Docker-build-n-push
 
 on:
   push:
-   # In case branches are also ignored
-   # branches:
-   #   - "**"
+    branches:
+      - "**"
     tags-ignore:
       - '**'
   release:
@@ -14,6 +13,7 @@ jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       packages: write
     steps:
       - name: Checkout repository
